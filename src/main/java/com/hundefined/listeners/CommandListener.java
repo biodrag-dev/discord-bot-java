@@ -1,9 +1,6 @@
 package com.hundefined.listeners;
 
-import com.hundefined.commands.Command;
-import com.hundefined.commands.EchoCommand;
-import com.hundefined.commands.InfoCommand;
-import com.hundefined.commands.PingCommand;
+import com.hundefined.commands.*;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -22,6 +19,8 @@ public class CommandListener extends ListenerAdapter {
         commands.put("ping", new PingCommand());
         commands.put("info", new InfoCommand());
         commands.put("echo", new EchoCommand());
+        commands.put("register", new RegisterCommand());
+
         logger.info("Registered {} commands.", commands.size());
     }
 

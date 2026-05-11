@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 import java.awt.Color;
 
-public class InfoCommand implements Command {
+public class SummaryCommand implements Command {
 
     @Override
     public String getName() {

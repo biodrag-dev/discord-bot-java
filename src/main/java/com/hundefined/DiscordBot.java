@@ -4,6 +4,8 @@ import com.hundefined.config.BotConfig;
 import com.hundefined.listeners.CommandListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -51,6 +53,9 @@ public class DiscordBot {
                 .addCommands(
                         Commands.slash("ping", "Checks the bot's latency to Discord's gateway."),
                         Commands.slash("info", "Displays information about the bot."),
+                        Commands.slash("register", "registers the user")
+                                .addOption(OptionType.USER, "user", "The user to register", true).setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MANAGE_PERMISSIONS)),
+                        Commands.slash("summary", "Pulls up your summary!"),
                         Commands.slash("echo", "Responds back with your message")
                                 .addOption(OptionType.STRING, "text", "The text to echo", true))
                 .queue(success -> logger.info("Slash commands registered successfully!"),
